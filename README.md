@@ -4,7 +4,7 @@ This project provides a Java implementation to solve the "CanSum" problem: deter
 
 ## Algorithms
 
-1. **Simple Recursive Method (`canSum`):**
+**1. Simple Recursive Method (`canSum`):**
 
 **Logic:**
 - The function `canSum` takes a target sum and an array of numbers.
@@ -15,7 +15,7 @@ This project provides a Java implementation to solve the "CanSum" problem: deter
 
 **Space Complexity:** O(m), due to the depth of the recursion stack.
 
-2. **Dynamic Programming with Memoization (`improvedCanSum`):**
+**2. Dynamic Programming with Memoization (`improvedCanSum`):**
 
 **Logic:**
 - The `improvedCanSum` function also takes a target sum, an array of numbers, and an additional `HashMap` for memoization (`memoizationCache`).
