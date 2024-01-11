@@ -2,7 +2,7 @@
 
 This project provides a Java implementation to solve the "CanSum" problem: determining if it is possible to generate a given target sum using any combination of numbers from a given array. The elements in the array can be used multiple times. The project includes two methods: `canSum` and `improvedCanSum`. The former is a straightforward recursive solution, while the latter introduces memoization for improved efficiency.
 
-## Algorithms Used
+## Algorithms
 
 1. **Simple Recursive Method (`canSum`):**
 
