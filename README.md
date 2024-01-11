@@ -4,20 +4,24 @@ This project provides a Java implementation to solve the "CanSum" problem: deter
 
 ## Algorithms
 
-**1. Simple Recursive Method (`canSum`):**
+### **1. Simple Recursive Method (`canSum`):**
 
-**Logic:**
+#### Logic
+
 - The function `canSum` takes a target sum and an array of numbers.
 - It recursively tries to find if any combination of numbers in the array can sum up to the target sum.
 - Base cases are when the target sum is 0 (return true) or less than 0 (return false).
+
+#### Complexity Analysis
 
 **Time Complexity:** O(n^m), where `n` is the length of the numbers array and `m` is the target sum. This is due to the recursive nature, which explores all possible combinations.
 
 **Space Complexity:** O(m), due to the depth of the recursion stack.
 
-**2. Dynamic Programming with Memoization (`improvedCanSum`):**
+### **2. Dynamic Programming with Memoization (`improvedCanSum`):**
 
-**Logic:**
+#### Logic
+
 - The `improvedCanSum` function also takes a target sum, an array of numbers, and an additional `HashMap` for memoization (`memoizationCache`).
 - It uses the same recursive approach as `canSum` but checks the `memoizationCache` before each recursive call. If the current target sum has been computed before, it returns the stored result.
 - This significantly reduces the number of calculations by storing and reusing the results of subproblems.
