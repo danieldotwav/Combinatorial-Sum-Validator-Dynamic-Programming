@@ -2,9 +2,9 @@
 
 This project provides a Java implementation to solve the "CanSum" problem: determining if it is possible to generate a given target sum using any combination of numbers from a given array. The elements in the array can be used multiple times. The project includes two methods: `canSum` and `improvedCanSum`. The former is a straightforward recursive solution, while the latter introduces memoization for improved efficiency.
 
-## Algorithms
+## Algorithms Used
 
-### canSum Method
+1. **Simple Recursive Method (`canSum`):**
 
 **Logic:**
 - The function `canSum` takes a target sum and an array of numbers.
@@ -15,7 +15,7 @@ This project provides a Java implementation to solve the "CanSum" problem: deter
 
 **Space Complexity:** O(m), due to the depth of the recursion stack.
 
-### improvedCanSum Method
+2. **Dynamic Programming with Memoization (`improvedCanSum`):**
 
 **Logic:**
 - The `improvedCanSum` function also takes a target sum, an array of numbers, and an additional `HashMap` for memoization (`memoizationCache`).
@@ -25,6 +25,38 @@ This project provides a Java implementation to solve the "CanSum" problem: deter
 **Time Complexity:** O(n*m), where `n` is the length of the numbers array and `m` is the target sum. Memoization ensures each subproblem is only solved once.
 
 **Space Complexity:** O(m), mainly due to the recursion stack and additional space for the memoization cache.
+
+### Code Snippet
+
+```
+static boolean improvedCanSum(int targetSum, int[] numbers, HashMap<Integer, Boolean> memoizationCache) {
+        // Base cases
+        if (memoizationCache.containsKey(targetSum)) {
+            return memoizationCache.get(targetSum);
+        }
+        if (targetSum == 0) {
+            return true;
+        }
+        if (targetSum < 0) {
+            return false;
+        }
+
+        for (int element : numbers) {
+            // Calculate the updated sum by subtracting the targetSum by each element
+            int updatedSum = targetSum - element;
+
+            // If the sum is greater than 0, pass the updatedSum to the next recursive call
+            if (improvedCanSum(updatedSum, numbers, memoizationCache) == true) {
+                memoizationCache.put(targetSum, true);
+                return true;
+            }
+        }
+
+        // Attempt all possibilities before returning false
+        memoizationCache.put(targetSum, false);
+        return false;
+    }
+```
 
 ## Usage and Examples
 
