@@ -28,7 +28,7 @@ This project provides a Java implementation to solve the "CanSum" problem: deter
 
 ### Code Snippet
 
-```
+```java
 static boolean improvedCanSum(int targetSum, int[] numbers, HashMap<Integer, Boolean> memoizationCache) {
         // Base cases
         if (memoizationCache.containsKey(targetSum)) {
