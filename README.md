@@ -14,9 +14,9 @@ This project provides a Java implementation to solve the "CanSum" problem: deter
 
 #### Complexity Analysis
 
-**Time Complexity:** O(n^m), where `n` is the length of the numbers array and `m` is the target sum. This is due to the recursive nature, which explores all possible combinations.
+- **Time Complexity:** O(n^m), where `n` is the length of the numbers array and `m` is the target sum. This is due to the recursive nature, which explores all possible combinations.
 
-**Space Complexity:** O(m), due to the depth of the recursion stack.
+- **Space Complexity:** O(m), due to the depth of the recursion stack.
 
 ### **2. Dynamic Programming with Memoization (`improvedCanSum`):**
 
@@ -26,9 +26,9 @@ This project provides a Java implementation to solve the "CanSum" problem: deter
 - It uses the same recursive approach as `canSum` but checks the `memoizationCache` before each recursive call. If the current target sum has been computed before, it returns the stored result.
 - This significantly reduces the number of calculations by storing and reusing the results of subproblems.
 
-**Time Complexity:** O(n*m), where `n` is the length of the numbers array and `m` is the target sum. Memoization ensures each subproblem is only solved once.
-
-**Space Complexity:** O(m), mainly due to the recursion stack and additional space for the memoization cache.
+- **Time Complexity:** O(n*m), where `n` is the length of the numbers array and `m` is the target sum. Memoization ensures each subproblem is only solved once.
+- 
+- **Space Complexity:** O(m), mainly due to the recursion stack and additional space for the memoization cache.
 
 ### Code Snippet
 
