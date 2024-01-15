@@ -2,29 +2,33 @@
 
 This project provides a Java implementation to solve the "CanSum" problem: determining if it is possible to generate a given target sum using any combination of numbers from a given array. The elements in the array can be used multiple times. The project includes two methods: `canSum` and `improvedCanSum`. The former is a straightforward recursive solution, while the latter introduces memoization for improved efficiency.
 
-## Algorithms Used
+## Algorithms
 
-1. **Simple Recursive Method (`canSum`):**
+### **1. Simple Recursive Method (`canSum`):**
 
-**Logic:**
+#### Logic
+
 - The function `canSum` takes a target sum and an array of numbers.
 - It recursively tries to find if any combination of numbers in the array can sum up to the target sum.
 - Base cases are when the target sum is 0 (return true) or less than 0 (return false).
 
-**Time Complexity:** O(n^m), where `n` is the length of the numbers array and `m` is the target sum. This is due to the recursive nature, which explores all possible combinations.
+#### Complexity Analysis
 
-**Space Complexity:** O(m), due to the depth of the recursion stack.
+- **Time Complexity:** O(n^m), where `n` is the length of the numbers array and `m` is the target sum. This is due to the recursive nature, which explores all possible combinations.
+- **Space Complexity:** O(m), due to the depth of the recursion stack.
 
-2. **Dynamic Programming with Memoization (`improvedCanSum`):**
+### **2. Dynamic Programming with Memoization (`improvedCanSum`):**
 
-**Logic:**
+#### Logic
+
 - The `improvedCanSum` function also takes a target sum, an array of numbers, and an additional `HashMap` for memoization (`memoizationCache`).
 - It uses the same recursive approach as `canSum` but checks the `memoizationCache` before each recursive call. If the current target sum has been computed before, it returns the stored result.
 - This significantly reduces the number of calculations by storing and reusing the results of subproblems.
 
-**Time Complexity:** O(n*m), where `n` is the length of the numbers array and `m` is the target sum. Memoization ensures each subproblem is only solved once.
+#### Complexity Analysis
 
-**Space Complexity:** O(m), mainly due to the recursion stack and additional space for the memoization cache.
+- **Time Complexity:** O(n*m), where `n` is the length of the numbers array and `m` is the target sum. Memoization ensures each subproblem is only solved once.
+- **Space Complexity:** O(m), mainly due to the recursion stack and additional space for the memoization cache.
 
 ### Code Snippet
 
