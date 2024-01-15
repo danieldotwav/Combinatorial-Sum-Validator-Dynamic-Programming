@@ -9,32 +9,34 @@ import java.util.HashMap;
 public class Main {
     public static void main(String[] args) {
         // Test Case with Empty Array
-        System.out.println("\nArray 1: []\nTarget: 7\nExpected Result: false\nActual Result: " + canSum(7, new int[] {}));
+        System.out.println("\nArray 1: []\nTarget: 7\nExpected Result: false\nActual Result: " + improvedCanSum(7, new int[] {}, new HashMap<Integer, Boolean>()));
 
         // Test Case with Zero Target
-        System.out.println("\nArray 2: [1, 2, 3]\nTarget: 0\nExpected Result: true\nActual Result: " + canSum(0, new int[] {1, 2, 3}));
+        System.out.println("\nArray 2: [1, 2, 3]\nTarget: 0\nExpected Result: true\nActual Result: " + improvedCanSum(0, new int[] {1, 2, 3}, new HashMap<Integer, Boolean>()));
 
         // Test Case with All Elements Greater than Target
-        System.out.println("\nArray 3: [8, 9, 10]\nTarget: 7\nExpected Result: false\nActual Result: " + canSum(7, new int[] {8, 9, 10}));
+        System.out.println("\nArray 3: [8, 9, 10]\nTarget: 7\nExpected Result: false\nActual Result: " + improvedCanSum(7, new int[] {8, 9, 10}, new HashMap<Integer, Boolean>()));
 
         // Test Case with Exact Match in Array
-        System.out.println("\nArray 4: [1, 2, 7, 4]\nTarget: 7\nExpected Result: true\nActual Result: " + canSum(7, new int[] {1, 2, 7, 4}));
+        System.out.println("\nArray 4: [1, 2, 7, 4]\nTarget: 7\nExpected Result: true\nActual Result: " + improvedCanSum(7, new int[] {1, 2, 7, 4}, new HashMap<Integer, Boolean>()));
 
         // Test Case with All Large Numbers
-        System.out.println("\nArray 5: [1000, 2000, 3000]\nTarget: 5000\nExpected Result: true\nActual Result: " + canSum(5000, new int[] {1000, 2000, 3000}));
+        System.out.println("\nArray 5: [1000, 2000, 3000]\nTarget: 5000\nExpected Result: true\nActual Result: " + improvedCanSum(5000, new int[] {1000, 2000, 3000}, new HashMap<Integer, Boolean>()));
 
         // Test Case with Duplicates in Array
-        System.out.println("\nArray 6: [1, 2, 2, 3]\nTarget: 4\nExpected Result: true\nActual Result: " + canSum(4, new int[] {1, 2, 2, 3}));
+        System.out.println("\nArray 6: [1, 2, 2, 3]\nTarget: 4\nExpected Result: true\nActual Result: " + improvedCanSum(4, new int[] {1, 2, 2, 3}, new HashMap<Integer, Boolean>()));
 
         // Test Case with All Negative Target
-        System.out.println("\nArray 7: [1, 2, 3]\nTarget: -5\nExpected Result: false\nActual Result: " + canSum(-5, new int[] {1, 2, 3}));
+        System.out.println("\nArray 7: [1, 2, 3]\nTarget: -5\nExpected Result: false\nActual Result: " + improvedCanSum(-5, new int[] {1, 2, 3}, new HashMap<Integer, Boolean>()));
 
-        // Test Case with Large Tree -> here we begin using memoization for duplicate subtrees
-        HashMap<Integer, Boolean> memoizationCache = new HashMap<Integer, Boolean>();
-        System.out.println("\nArray 8: [7, 14]\nTarget: 300\nExpected Result: false\nActual Result: " + improvedCanSum(300, new int[] {7, 14}, memoizationCache));
+        // Test Case with Large Tree
+        System.out.println("\nArray 8: [7, 14]\nTarget: 300\nExpected Result: false\nActual Result: " + improvedCanSum(300, new int[] {7, 14}, new HashMap<Integer, Boolean>()));
+    
+        // Large Array, Large Target Sum
+        System.out.println("\nArray 9: [2, 3, 5, 7, 18, 15, 19, 17, 33]\nTarget: 10173\nExpected Result: true\nActual Result: " + improvedCanSum(10173, new int[] {2, 3, 5, 7, 18, 15, 19, 17, 33}, new HashMap<Integer, Boolean>()));
     }
 
-    // Recursive method without dynamic programming
+    // Simple recursive method
     static boolean canSum(int targetSum, int[] numbers) {
         // Base cases
         if (targetSum == 0) {
